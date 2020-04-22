@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(vda5050_msgs)
 
-find_package(catkin REQUIRED
+find_package(catkin REQUIRED COMPONENTS
   message_generation
+  message_runtime
   std_msgs
 )
 
@@ -10,36 +11,39 @@ add_message_files(
   DIRECTORY
     msg
   FILES
-    Action.msg
-    BatteryInformation.msg
-    CurrentAction.msg
-    Error.msg
-    LoadDimensions.msg
-    NodePosition.msg
-    Order.msg
-    ActionParameter.msg
-    BoundingBoxReference.msg
-    Edge.msg
-    ErrorReference.msg
-    Load.msg
-    NodeState.msg
-    SafetyStatus.msg
     AGVPosition.msg
+    Action.msg
+    ActionParameter.msg
+    BatteryInformation.msg
+    BoundingBoxReference.msg
     ControlPoint.msg
+    CurrentAction.msg
+    Edge.msg
     EdgeState.msg
+    Error.msg
+    ErrorReference.msg
     Header.msg
+    InstantActions.msg
+    Load.msg
+    LoadDimensions.msg
     Node.msg
+    NodePosition.msg
+    NodeState.msg
+    Order.msg
     OrderInformation.msg
+    SafetyStatus.msg
     Trajectory.msg
+    Velocity.msg
+    Visualization.msg
    )
 generate_messages(
   DEPENDENCIES
   std_msgs
-  
 )
 
 catkin_package(
-  CATKIN_DEPENDS 
+  CATKIN_DEPENDS
     std_msgs
     message_generation
+    message_runtime
 )
