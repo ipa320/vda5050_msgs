@@ -11,13 +11,28 @@ string manufacturer                                  # Manufacturer of the AGV
 string serialNumber                                  # Serial Number of the AGV
 
 # CONTENTS
+string orderId                                       # Unique order identification “none” if vehicle is idle and has no order
 
-string orderId                                       # Unique order identification “none” if vehicle is idle and has no
 string orderUpdateId                                 # orderUpdate identification. Is unique per orderId. If an order update is rejected, this field is to be passed in the rejection message.
-                                                     # order
 
 string lastNodeId                                    # nodeId of last reached node or current node if agv is on node
                                                      # (sample: node 7)
+
+int32 lastNodeSequenceId                             # sequenceId of the last reached node or, if the AGV is currently on a node, sequenceId of current node.
+                                                     # “0” if no lastNodeSequenceId is available.
+
+bool driving                                         # True: indicates that the AGV is driving and/or rotating. Other
+                                                     # movements of the AGV (e.g. lift movements) are not included here.
+                                                     # False: indicates that the AGV is neither driving nor rotating
+
+bool newBaseRequested                                # True: AGV is almost at the end of the base and will reduce speed if no new base is transmitted. Trigger for MC to send ne base
+                                                     # False: no base update required
+
+# Optional
+#float64 distanceSinceLastNode                       # Used by line guided vehicles to indicate the distance it has been driving past the „lastNodeId“. Distance is in meters
+
+string operatingMode                                 # Enum {automatic, semi-automatic, manual, service, teach-in}
+                                                     # For additional information see chapter 6.2
 
 vda5050_msgs/NodeState[] nodeStates                  # Array of nodeStateObjects (empty list if idle)
 
@@ -27,35 +42,28 @@ vda5050_msgs/AGVPosition agvPosition                 # Current position of the A
                                                      # AGVs without the capability to localize themselves, e.g. line
                                                      # guided AGVs.
 
-vda5050_msgs/Trajectory Trajectory                   # The trajectory is to be communicated as a NURBS and is defined in
+# Optional?
+#vda5050_msgs/Velocity velocity                      # AGV's velocity in vehicle coordinates
+
+vda5050_msgs/Trajectory trajectory                   # The trajectory is to be communicated as a NURBS and is defined in
                                                      # chapter 5.1. Optional: AGVs that plan their own path are to
                                                      # communicate their path via a trajectory object.
 
 vda5050_msgs/Load[] loads                            # Loads that are currently handled by the AGV.
 
-bool driving                                         # True: indicates that the AGV is driving and/or rotating. Other
-                                                     # movements of the AGV (e.g. lift movements) are not included here.
-                                                     # False: indicates that the AGV is neither driving nor rotating
-
 float64 distanceSinceLastNode                        # For line guided vehicles.
-vda5050_msgs/CurrentAction[] currentActions          # Contains a list of the current actions and the actions which are
+vda5050_msgs/CurrentAction[] actionStates            # Contains a list of the current actions and the actions which are
                                                      # yet to be finished. This may include actions from previous nodes
                                                      # that are still in progress. When an action is completed, an
                                                      # updated state message is published with actionStatus set to
                                                      # finished and if applicable with the corresponding
                                                      # resultDescription. Completed actions are omitted from the array
 
-vda5050_msgs/BatteryInformation batteryInformation   # Contains all batteryrelated information.
-
-string operatingMode                                 # Enum {automatic, semi-automatic, manual, service, teach-in}
-                                                     # For additional information see chapter 6.2
+vda5050_msgs/BatteryInformation batteryState         # Contains all batteryrelated information.
 
 vda5050_msgs/Error[] errors                          # Array of errorobjects. Empty array if there are no errors.
 
 vda5050_msgs/SafetyStatus safetyStatus               # Contains all safetyrelated information.
-
-vda5050_msgs/NodeState nodeState                     # Array of nodes to be traversed for fulfilling the order
-vda5050_msgs/EdgeState edgeState
 
 
 
