@@ -19,4 +19,4 @@ string mapId                  # Unique identification of the map in which the po
                               # floor to a target floor, it will disappear off the map of the departure floor and spawn
                               # in the related lift node on the map of the target floor.
 
-string mapDiscription         # Additional information on the map.
+string mapDescription         # Additional information on the map.
