@@ -11,8 +11,8 @@ string edgeDescription              # Additional information on the edge
 bool released                       # True indicates that the edge is part of the base. False indicates that the edge is
                                     # part of the horizon.
 
-string startNode                    # nodeID of startNode
-string endNode                      # nodeID of endNode
+string startNodeId                    # nodeID of startNode
+string endNodeId                      # nodeID of endNode
 float64 maxSpeed                    # Permitted maximum speed on the edge. Speed is defined by the fastest point of the
                                     # vehicle.
 
@@ -31,6 +31,7 @@ vda5050_msgs/Trajectory trajectory  # Trajectory JSON-object for this edge as a 
                                     # cannot process trajectories or if AGV plans its own trajectory.
 float64 distance                    # [m] Distance of the path from startNode to endNode. Optional: This value is used 
                                     # by lineguided AGVs to decrease their speed before reaching a stop position.
+				    # TODO: Might also be "length"
 
 vda5050_msgs/Action[] actions       # Array of actionIds to be executed on the edge. An action triggered by an edge will
                                     # only be active for the time that the AGV is traversing the edge which triggered
