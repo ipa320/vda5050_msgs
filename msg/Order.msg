@@ -1,15 +1,28 @@
-vda5050_msgs/Header header
-string orderId                              # Unique order identification
+# HEADER
+int32 headerId                               # header ID of the message. The headerId is defined per topic and incremented by 1 with each sent
+                                             # (but not necessarily received) message.
 
-string orderUpdateId                        # orderUpdate identification. Is unique per orderId. If an order update is 
-                                            # rejected, this field is to be passed in the rejection message
+string timestamp                             # Timestamp after ISO8601 in the format YYYY-MM-DDTHH:mm:ss.ssZ (e.g.“2017-04-15T11:40:03.12Z”)
 
-bool replace                                # Indicates that previously released base nodes should be replaced by the 
-                                            # base of this updated order. If this is not possible, the AGV returns an 
-                                            # error code (see errors in topic “state”). The new base has to start at the 
-                                            # following node from the current position which has not been traversed yet.
+string version                               # Version of the protocol [Major].[Minor].[Patch] (e.g. 1.3.2)
 
-vda5050_msgs/Node[] nodes                   # Array of nodes to be traversed for fulfilling the order. The nodes come 
-                                            # in the sequence of the fulfilling.
+string manufacturer                          # Manufacturer of the AGV
 
-vda5050_msgs/Edge[] edges                   # Array of edges to be traversed for fulfilling the order
+string serialNumber                          # Serial Number of the AGV
+
+# CONTENTS
+
+string orderId                               # Unique order identification
+
+uint64 orderUpdateId                         # orderUpdate identification. Is unique per orderId. If an order update is
+                                             # rejected, this field is to be passed in the rejection message
+
+bool replace                                 # Indicates that previously released base nodes should be replaced by the
+                                             # base of this updated order. If this is not possible, the AGV returns an
+                                             # error code (see errors in topic “state”). The new base has to start at the
+                                             # following node from the current position which has not been traversed yet.
+
+vda5050_msgs/Node[] nodes                    # Array of nodes to be traversed for fulfilling the order. The nodes come
+                                             # in the sequence of the fulfilling.
+
+vda5050_msgs/Edge[] edges                    # Array of edges to be traversed for fulfilling the order
