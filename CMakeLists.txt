@@ -1,49 +1,52 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(vda5050_msgs)
 
-find_package(catkin REQUIRED COMPONENTS
-  message_generation
-  message_runtime
-  std_msgs
-)
 
-add_message_files(
-  DIRECTORY
-    msg
-  FILES
-    AGVPosition.msg
-    Action.msg
-    ActionParameter.msg
-    BatteryInformation.msg
-    BoundingBoxReference.msg
-    ControlPoint.msg
-    CurrentAction.msg
-    Edge.msg
-    EdgeState.msg
-    Error.msg
-    ErrorReference.msg
-    Header.msg
-    InstantActions.msg
-    Load.msg
-    LoadDimensions.msg
-    Node.msg
-    NodePosition.msg
-    NodeState.msg
-    Order.msg
-    OrderInformation.msg
-    SafetyStatus.msg
-    Trajectory.msg
-    Velocity.msg
-    Visualization.msg
-   )
-generate_messages(
-  DEPENDENCIES
-  std_msgs
-)
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+endif()
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
 
-catkin_package(
-  CATKIN_DEPENDS
+find_package(ament_cmake REQUIRED)
+find_package(builtin_interfaces REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
+find_package(std_msgs REQUIRED)
+
+set(msg_files
+    "msg/AGVPosition.msg"
+    "msg/Action.msg"
+    "msg/ActionParameter.msg"
+    "msg/BatteryInformation.msg"
+    "msg/BoundingBoxReference.msg"
+    "msg/ControlPoint.msg"
+    "msg/CurrentAction.msg"
+    "msg/Edge.msg"
+    "msg/EdgeState.msg"
+    "msg/Error.msg"
+    "msg/ErrorReference.msg"
+    "msg/Header.msg"
+    "msg/InstantActions.msg"
+    "msg/Load.msg"
+    "msg/LoadDimensions.msg"
+    "msg/Node.msg"
+    "msg/NodePosition.msg"
+    "msg/NodeState.msg"
+    "msg/Order.msg"
+    "msg/OrderInformation.msg"
+    "msg/SafetyStatus.msg"
+    "msg/Trajectory.msg"
+    "msg/Velocity.msg"
+    "msg/Visualization.msg"
+)
+rosidl_generate_interfaces(${PROJECT_NAME}
+  ${msg_files}
+  DEPENDENCIES 
     std_msgs
-    message_generation
-    message_runtime
+    builtin_interfaces
 )
+
+ament_export_dependencies(rosidl_default_runtime)
+ament_package()
