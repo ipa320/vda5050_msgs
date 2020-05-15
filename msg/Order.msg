@@ -1,5 +1,5 @@
 # HEADER
-int32 headerId                               # header ID of the message. The headerId is defined per topic and incremented by 1 with each sent
+int32 header_id                               # header ID of the message. The header_id is defined per topic and incremented by 1 with each sent
                                              # (but not necessarily received) message.
 
 string timestamp                             # Timestamp after ISO8601 in the format YYYY-MM-DDTHH:mm:ss.ssZ (e.g.“2017-04-15T11:40:03.12Z”)
@@ -8,13 +8,13 @@ string version                               # Version of the protocol [Major].[
 
 string manufacturer                          # Manufacturer of the AGV
 
-string serialNumber                          # Serial Number of the AGV
+string serial_number                          # Serial Number of the AGV
 
 # CONTENTS
 
-string orderId                               # Unique order identification
+string order_id                               # Unique order identification
 
-uint64 orderUpdateId                         # orderUpdate identification. Is unique per orderId. If an order update is
+uint64 order_update_id                         # order_update identification. Is unique per order_id. If an order update is
                                              # rejected, this field is to be passed in the rejection message
 
 bool replace                                 # Indicates that previously released base nodes should be replaced by the

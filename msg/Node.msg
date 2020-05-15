@@ -1,20 +1,20 @@
 # Array of nodes to be traversed for fulfilling the order
 
-string nodeId                                     # Unique node identification. 
+string node_id                                     # Unique node identification. 
 
-int32 sequenceId                                  # Id to track the sequence of nodes and edges in an order and to 
-                                                  # simplify order updates. The variable sequenceId runs across all
-                                                  # nodes and edges of the same order and is reset when a new orderId is
+int32 sequence_id                                  # Id to track the sequence of nodes and edges in an order and to 
+                                                  # simplify order updates. The variable sequence_id runs across all
+                                                  # nodes and edges of the same order and is reset when a new order_id is
                                                   # issued.
 
-string nodeDescription                            # Additional information on the node
+string node_description                            # Additional information on the node
 
 bool released                                     # True indicates that the node is part of the base. False indicates
                                                   # that the node is part of the horizon.
 
-vda5050_msgs/NodePosition nodePosition                # Node position
+vda5050_msgs/NodePosition node_position                # Node position
 
-float32 allowedDeviation                          # Indicates how exact an AGV has to drive over a node in order for it
+float32 allowed_deviation                          # Indicates how exact an AGV has to drive over a node in order for it
                                                   # to count as traversed.
                                                   #
                                                   # If = 0: no deviation is allowed (no deviation means within the
@@ -26,4 +26,4 @@ float32 allowedDeviation                          # Indicates how exact an AGV h
 
 vda5050_msgs/Action[] actions                     # Array of actions to be executed in node. Empty array if no actions 
                                                   # required. An action triggered by a node will persist until changed
-                                                  # in another node unless restricted by durationType/durationValue. 
+                                                  # in another node unless restricted by duration_type/duration_value. 
