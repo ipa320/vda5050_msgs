@@ -12,13 +12,13 @@ env:
     - ROS_REPO=ros
     - NOT_TEST_INSTALL=true
   matrix:
-    - ROS_DISTRO=kinetic UPSTREAM_WORKSPACE=debian
-    - ROS_DISTRO=melodic UPSTREAM_WORKSPACE=debian
+    - ROS_DISTRO=eloquent UPSTREAM_WORKSPACE=debian
+    - ROS_DISTRO=foxy UPSTREAM_WORKSPACE=debian
 matrix:
   allow_failures:
-    - env: ROS_DISTRO=melodic UPSTREAM_WORKSPACE=debian
+    - env: ROS_DISTRO=foxy UPSTREAM_WORKSPACE=debian
 install:
-  - git clone https://github.com/ros-industrial/industrial_ci.git .ci_config
+  - git clone --quiet --depth 1 https://github.com/ros-industrial/industrial_ci.git .industrial_ci -b master
 script:
-  - .ci_config/travis.sh
+  - .industrial_ci/travis.sh
 #  - ./travis.sh  # Enable this when you have a package-local script
