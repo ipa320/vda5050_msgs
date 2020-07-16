@@ -50,10 +50,10 @@ def transform_keys_in_dict(multilevel_dict, transformer):
 
 
 def dumps(d) -> str:
-    return json.dumps(transform_keys_in_dict(d, snakey))
+    return json.dumps(transform_keys_in_dict(d, dromedary))
 
 
 def loads(str_val) -> dict:
     d = json.loads(str_val)
 
-    return transform_keys_in_dict(d, dromedary)
+    return transform_keys_in_dict(d, snakey)
