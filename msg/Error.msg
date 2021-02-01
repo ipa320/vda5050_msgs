@@ -1,5 +1,5 @@
 string errorType                              # Type / name of error
-vda5050_msgs/ErrorReference errorReferences   # Array of references to identify the source of the error (e. g. headerId,
+vda5050_msgs/ErrorReference[] errorReferences   # Array of references to identify the source of the error (e. g. headerId,
                                               # orderId, actionId, …). For additional information see best practice
                                               # chapter 6.3
 string errorDescription                       # Error description 
