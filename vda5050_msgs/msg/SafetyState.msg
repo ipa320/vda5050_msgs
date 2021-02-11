@@ -1,11 +1,11 @@
-string e_stop            # Enum {autoAck, manual, remote, none} Acknowledge-Type of e_stop: 
+string e_stop           # Enum {autoAck, manual, remote, none} Acknowledge-Type of eStop:
                         # autoAck: autoacknowledgeable e-stop is activated e.g. by bumper or protective field
                         # manual: e-stop has to be acknowledged manually at the vehicle 
                         # remote: facility estop has to be acknowledged remotely 
                         # none: no e-stop activated
-bool field_violation     # Protective field violation. True: field is violated False: field is not violated 
+bool field_violation    # Protective field violation. True: field is violated False: field is not violated
 
-# Enums for e_stop
+# Enums for eStop
 string AUTO_ACK="autoAck"
 string MANUAL="manual"
 string REMOTE="remote"
