@@ -26,3 +26,6 @@ vda5050_msgs/Node[] nodes                    # Array of nodes to be traversed fo
                                              # in the sequence of the fulfilling.
 
 vda5050_msgs/Edge[] edges                    # Array of edges to be traversed for fulfilling the order
+
+string zoneSetId                             # Unique identifier of the zone set that the AGV has to use for navigation or that was used by master controlfor planning
+                                             # Optional: Some master controlsystems do not use zones. Some AGVs do not understand zones. Do not add to message if no zones are used
