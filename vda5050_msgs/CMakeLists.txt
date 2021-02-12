@@ -21,6 +21,7 @@ set(msg_files
     "msg/ActionParameter.msg"
     "msg/BatteryState.msg"
     "msg/BoundingBoxReference.msg"
+    "msg/Connection.msg"
     "msg/ControlPoint.msg"
     "msg/CurrentAction.msg"
     "msg/Edge.msg"
