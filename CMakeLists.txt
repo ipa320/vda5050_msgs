@@ -16,6 +16,7 @@ add_message_files(
     ActionParameter.msg
     BatteryState.msg
     BoundingBoxReference.msg
+    Connection.msg
     ControlPoint.msg
     CurrentAction.msg
     Edge.msg
