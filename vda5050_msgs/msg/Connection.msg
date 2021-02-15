@@ -11,6 +11,12 @@ string manufacturer     # Manufacturer of the AGV
 string serial_number    # Serial Number of the AGV
 
 # CONTENTS
-AGVPosition agv_position # The AGV's position
+string connection_state # Enum{ONLINE, OFFLINE, CONNECTIONBROKEN}
+                        # ONLINE: connection between AGV and broker is active.
+                        # OFFLINE: connection between AGV and broker has gone offline in a coordinated way.
+                        # CONNECTIONBROKEN: The connection between  AGV and  broker  has unexpectedly ended.
 
-Velocity velocity       # The AGV's velocity in vehicle coordinates
+
+string ONLINE="ONLINE"
+string OFFLINCE="OFFLINE"
+string CONNECTIONBROKEN="CONNECTIONBROKEN"

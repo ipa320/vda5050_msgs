@@ -6,10 +6,10 @@ float64 localization_score       # Range: [0.0 … 1.0] Describes the quality of
                               # e. g. by SLAMAGVs to describe how accurate the current position information is. 
                               # 0.0: position unknown 1.0: position known
 float64 deviation_range          # Value for the deviation range of the position in meters.
-float64 x                     # [m] X-position on the map in reference to the map coordinate system. Precision is up to 
+float64 x                     # [m] X-position on the map in reference to the map coordinate system. Precision is up to
                               # the specific implementation
 
-float64 y                     # [m] Y-position on the map in reference to the map coordinate system. Precision is up to 
+float64 y                     # [m] Y-position on the map in reference to the map coordinate system. Precision is up to
                               # the specific implementation.
 
 float64 theta                 # [rad] Range: [-Pi … Pi] Orientation of the AGV. 
