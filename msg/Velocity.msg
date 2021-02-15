@@ -1,3 +1,3 @@
-float64 vx    # forward velocity
-float64 vy    # sideways velocity
-float64 omega # rotational velocity
+float64 vx    # [m/s] forward velocity
+float64 vy    # [m/s] sideways velocity
+float64 omega # [rad/s] rotational velocity
