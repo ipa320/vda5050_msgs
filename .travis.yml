@@ -12,8 +12,8 @@ env:
     - ROS_REPO=ros
     - NOT_TEST_INSTALL=true
   matrix:
-    - ROS_DISTRO=kinetic UPSTREAM_WORKSPACE=debian
     - ROS_DISTRO=melodic UPSTREAM_WORKSPACE=debian
+    - ROS_DISTRO=noetic UPSTREAM_WORKSPACE=debian
 matrix:
   allow_failures:
     - env: ROS_DISTRO=melodic UPSTREAM_WORKSPACE=debian
