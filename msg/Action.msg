@@ -29,6 +29,6 @@ vda5050_msgs/ActionParameter[] actionParameters                 # Array of actio
 
 
 # Enums for blockingType
-string NONE = "NONE"
-string SOFT = "SOFT"
-string HARD = "HARD"
+string NONE=NONE
+string SOFT=SOFT
+string HARD=HARD

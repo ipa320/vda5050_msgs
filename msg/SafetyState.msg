@@ -6,7 +6,7 @@ string eStop            # Enum {autoAck, manual, remote, none} Acknowledge-Type 
 bool fieldViolation     # Protective field violation. True: field is violated False: field is not violated 
 
 # Enums for eStop
-string AUTO_ACK="autoAck"
-string MANUAL="manual"
-string REMOTE="remote"
-string NONE="none"
+string AUTO_ACK=autoAck
+string MANUAL=manual
+string REMOTE=remote
+string NONE=none
