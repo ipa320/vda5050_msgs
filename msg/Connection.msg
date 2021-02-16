@@ -16,6 +16,6 @@ string connection_state # Enum{ONLINE, OFFLINE, CONNECTIONBROKEN}
                         # CONNECTIONBROKEN: The connection between  AGV and  broker  has unexpectedly ended.
 
 
-string ONLINE="ONLINE"
-string OFFLINCE="OFFLINE"
-string CONNECTIONBROKEN="CONNECTIONBROKEN"
+string ONLINE=ONLINE
+string OFFLINCE=OFFLINE
+string CONNECTIONBROKEN=CONNECTIONBROKEN

@@ -80,17 +80,17 @@ vda5050_msgs/Info informations                       # Array of info-objects. An
 
 
                                                      # Enums for operatingMode
-string AUTOMATIC="AUTOMATIC"
+string AUTOMATIC=AUTOMATIC
 
                                                      # AGV is under full control of the supervisor. AGV drives and executes actions based on orders from the supervisor
-string SEMIAUTOMATIC="SEMIAUTOMATIC"
+string SEMIAUTOMATIC=SEMIAUTOMATIC
 
                                                      # AGV is under control of the supervisor. AGV drives and executes actions based on orders from the supervisor. The driving speeds is controlled by the HMI. (speed can’t exceed the speed of automatic mode) The steering is under automatic control. (non-safe HMI possible)
-string MANUAL="MANUAL"
+string MANUAL=MANUAL
 
                                                      # Supervisor is not in control of the AGV. Supervisor doesn’t send driving order or actions to the AGV. HMI can be used the control the steering and velocity and handling device of the AGV. Location of the AGV is send to the supervisor. When AGV enters or leaves this mode, it immediately clears all the orders. (safe HMI required)
                                                      # Supervisor is not in control of the AGV. Supervisor doesn’t send driving order or actions to the AGV. Authorized personal can reconfigure the AGV.
-string SERVICE="SERVICE"
+string SERVICE=SERVICE
 
                                                      # Supervisor is not in control of the AGV. Supervisor doesn’t send driving order or actions to the AGV. The AGV is being taught, e.g. mapping is done by a supervisor
-string TEACHIN="TEACHIN"
+string TEACHIN=TEACHIN

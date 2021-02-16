@@ -8,5 +8,5 @@ string errorLevel                             # Enum {warning, fatal} warning: A
                                               # intervention required (e.g. laser scanner is contaminated)
 
 # Enums for errorLevel
-string WARNING="warning"
-string FATAL="fatal"
+string WARNING=warning
+string FATAL=fatal

@@ -4,5 +4,5 @@ string infoDescription                      # Info description
 string infoLevel                            # Enum {DEBUG, INFO} DEBUG: used for debugging, INFO: used for visualization
 
 
-string DEBUG="DEBUG"
-string INFO="INFO"
+string DEBUG=DEBUG
+string INFO=INFO
