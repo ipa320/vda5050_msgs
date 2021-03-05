@@ -9,4 +9,3 @@ float64 orientation # [rad] Range [-pi...pi] Orientation of the AGV on this posi
 float64 weight      # Range [0..infinity) The weight with which this control point pulls on the curve.
                     # When not defined, the default will be 1.0
 
-string map_id       # Reference to the ID of the map for the coordinates of the control point.
