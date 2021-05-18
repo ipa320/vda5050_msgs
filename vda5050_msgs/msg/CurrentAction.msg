@@ -5,9 +5,10 @@ string action_status       # Enum {waiting; initializing; running; finished; fai
 string result_description  # Description of the result, e.g. the result of a RFID-read. Errors will be transmitted in
                           # errors. Examples for results are given in 5.2
 
-# Enums for action_status
-string WAITING="waiting"
-string INITIALIZING="initializing"
-string RUNNING="running"
-string FINISHED="finished"
-string FAILED="failed"
+# Enums for actionStatus
+string WAITING="WAITING"
+string INITIALIZING="INITIALIZING"
+string RUNNING="RUNNING"
+string PAUSED="PAUSED"
+string FINISHED="FINISHED"
+string FAILED="FAILED"
