@@ -6,8 +6,9 @@ string resultDescription  # Description of the result, e.g. the result of a RFID
                           # errors. Examples for results are given in 5.2
 
 # Enums for actionStatus
-string WAITING=waiting
-string INITIALIZING=initializing
-string RUNNING=running
-string FINISHED=finished
-string FAILED=failed
+string WAITING=WAITING
+string INITIALIZING=INITIALIZING
+string RUNNING=RUNNING
+string PAUSED=PAUSED
+string FINISHED=FINISHED
+string FAILED=FAILED
