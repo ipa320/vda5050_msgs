@@ -36,7 +36,7 @@ bool newBaseRequested                                # True: AGV is almost at th
                                                      # False: no base update required
 
 # Optional
-#float64 distanceSinceLastNode                       # Used by line guided vehicles to indicate the distance it has been driving past the „lastNodeId“. Distance is in meters
+float64 distanceSinceLastNode                       # Used by line guided vehicles to indicate the distance it has been driving past the „lastNodeId“. Distance is in meters
 
 string operatingMode                                 # Enum {AUTOMATIC, SEMIAUTOMATIC, MANUAL, SERVICE, TEACHIN}
                                                      # For additional information see chapter 6.2
@@ -49,7 +49,7 @@ vda5050_msgs/AGVPosition agvPosition                 # Current position of the A
                                                      # AGVs without the capability to localize themselves, e.g. line
                                                      # guided AGVs.
 
-#vda5050_msgs/Velocity velocity                      # AGV's velocity in vehicle coordinates
+vda5050_msgs/Velocity velocity                       # AGV's velocity in vehicle coordinates
 
 vda5050_msgs/Trajectory trajectory                   # The trajectory is to be communicated as a NURBS and is defined in
                                                      # chapter 5.1. Optional: AGVs that plan their own path are to
@@ -59,7 +59,6 @@ vda5050_msgs/Load[] loads                            # Loads that are currently 
                                                      # Optional: If AGV cannot determine load state, leave the array out of the state.
                                                      # If the  AGV  can determine the  load  state,  but  the  array  is  empty,  the  AGV  is considered unloaded.
 
-float64 distanceSinceLastNode                        # For line guided vehicles.
 vda5050_msgs/CurrentAction[] actionStates            # Contains a list of the current actions and the actions which are
                                                      # yet to be finished. This may include actions from previous nodes
                                                      # that are still in progress. When an action is completed, an
@@ -73,7 +72,7 @@ vda5050_msgs/Error[] errors                          # Array of errorobjects. Em
 
 vda5050_msgs/SafetyState safetyState                 # Contains all safetyrelated information.
 
-vda5050_msgs/Info informations                       # Array of info-objects. An empty array indicates that the AGV has no information.
+vda5050_msgs/Info[] informations                     # Array of info-objects. An empty array indicates that the AGV has no information.
                                                      # This should only be used for visualization or debugging – it must not be used for logic in master control
 
 
