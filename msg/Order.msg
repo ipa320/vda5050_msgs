@@ -14,7 +14,7 @@ string serialNumber                          # Serial Number of the AGV
 
 string orderId                               # Unique order identification
 
-uint64 orderUpdateId                         # orderUpdate identification. Is unique per orderId. If an order update is
+uint32 orderUpdateId                         # orderUpdate identification. Is unique per orderId. If an order update is
                                              # rejected, this field is to be passed in the rejection message
 
 bool replace                                 # Indicates that previously released base nodes should be replaced by the
