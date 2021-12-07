@@ -13,7 +13,7 @@ string serialNumber                                  # Serial Number of the AGV
 # CONTENTS
 string orderId                                       # Unique order identification “none” if vehicle is idle and has no order
 
-string orderUpdateId                                 # orderUpdate identification. Is unique per orderId. If an order update is rejected, this field is to be passed in the rejection message.
+uint32 orderUpdateId                                 # orderUpdate identification. Is unique per orderId. If an order update is rejected, this field is to be passed in the rejection message.
 
 string zoneSetId                                     # Unique ID of the zone set that the AGV currently uses for path planning. Must be the same as the one used in the order,
                                                      # otherwise the AGV hasto reject the order. Optional: If the AGV does not use zones, this field can be omitted.
