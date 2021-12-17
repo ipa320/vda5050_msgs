@@ -10,7 +10,7 @@ string manufacturer     # Manufacturer of the AGV
 
 string serialNumber     # Serial Number of the AGV
 # CONTENTS
-string connection_state # Enum{ONLINE, OFFLINE, CONNECTIONBROKEN}
+string connectionState  # Enum{ONLINE, OFFLINE, CONNECTIONBROKEN}
                         # ONLINE: connection between AGV and broker is active.
                         # OFFLINE: connection between AGV and broker has gone offline in a coordinated way.
                         # CONNECTIONBROKEN: The connection between  AGV and  broker  has unexpectedly ended.
