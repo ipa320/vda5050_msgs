@@ -1,6 +1,6 @@
 string edge_id                       # Unique edge identification
 
-int32 sequence_id                    # sequenceId to differentiate between multiple edges with
+uint32 sequence_id                   # sequenceId to differentiate between multiple edges with
 
 string edge_description              # Additional information on the edge
 

@@ -2,7 +2,7 @@
 
 string edge_id                      # Unique edge identification
 
-int32 sequence_id                   # Id to track the sequence of nodes and edges in an order and to simplify order
+uint32 sequence_id                  # Id to track the sequence of nodes and edges in an order and to simplify order
                                     # updates. The variable sequence_id runs across all nodes and edges of the same order
                                     # and is reset when a new order_id is issued.
 
