@@ -14,9 +14,9 @@ float64 y                     # [m] Y-position on the map in reference to the ma
 
 float64 theta                 # [rad] Range: [-Pi … Pi] Orientation of the AGV. 
 
-string map_id                  # Unique identification of the map in which the position is referenced. Each map has the 
+string map_id                 # Unique identification of the map in which the position is referenced. Each map has the 
                               # same origin of coordinates. When an AGV uses an elevator, e. g. leading from a departure
                               # floor to a target floor, it will disappear off the map of the departure floor and spawn
                               # in the related lift node on the map of the target floor.
 
-string map_description         # Additional information on the map.
+string map_description        # Additional information on the map.

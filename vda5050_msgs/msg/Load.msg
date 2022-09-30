@@ -14,4 +14,4 @@ vda5050_msgs/BoundingBoxReference bounding_box_reference  # Point of reference f
                                                         
 vda5050_msgs/LoadDimensions load_dimensions              # Dimensions of the load’s bounding box in meters.
 
-uint32 weight                                           # Absolute weight of the load measured in kg.
+float64 weight                                           # Absolute weight of the load measured in kg.
