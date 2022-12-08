@@ -14,6 +14,7 @@ add_message_files(
     AGVPosition.msg
     Action.msg
     ActionParameter.msg
+    ActionState.msg
     BatteryState.msg
     BoundingBoxReference.msg
     Connection.msg
@@ -35,6 +36,7 @@ add_message_files(
     Order.msg
     OrderInformation.msg
     SafetyState.msg
+    State.msg
     Trajectory.msg
     Velocity.msg
     Visualization.msg
