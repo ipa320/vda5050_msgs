@@ -15,6 +15,7 @@ add_message_files(
     Action.msg
     ActionParameter.msg
     ActionState.msg
+    ActionStates.msg
     BatteryState.msg
     BoundingBoxReference.msg
     Connection.msg
@@ -22,19 +23,26 @@ add_message_files(
     CurrentAction.msg
     Edge.msg
     EdgeState.msg
+    EdgeStates.msg
     Error.msg
+    Errors.msg
     ErrorReference.msg
     Header.msg
     InstantActions.msg
     Info.msg
     InfoReference.msg
+    Information.msg
     Load.msg
     LoadDimensions.msg
+    Loads.msg
     Node.msg
     NodePosition.msg
     NodeState.msg
+    NodeStates.msg
     Order.msg
+    OrderActions.msg
     OrderInformation.msg
+    OrderMotion.msg
     SafetyState.msg
     State.msg
     Trajectory.msg
