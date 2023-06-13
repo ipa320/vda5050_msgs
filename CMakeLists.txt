@@ -48,6 +48,10 @@ add_message_files(
     Trajectory.msg
     Velocity.msg
     Visualization.msg
+    Zone.msg
+    ZoneParameter.msg
+    ZonePolygonPoint.msg
+    ZoneUpdate.msg
    )
 generate_messages(
   DEPENDENCIES

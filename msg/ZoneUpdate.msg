@@ -9,13 +9,12 @@ string version          # Version of the protocol [Major].[Minor].[Patch] (e.g. 
 string manufacturer     # Manufacturer of the AGV
 
 string serialNumber     # Serial Number of the AGV
+
 # CONTENTS
-string connectionState  # Enum{ONLINE, OFFLINE, CONNECTIONBROKEN}
-                        # ONLINE: connection between AGV and broker is active.
-                        # OFFLINE: connection between AGV and broker has gone offline in a coordinated way.
-                        # CONNECTIONBROKEN: The connection between  AGV and  broker  has unexpectedly ended.
+string zoneSetId        # The ID of the zone set being used
 
+string zoneDownloadLink # Link to download the zones
 
-string ONLINE=ONLINE
-string OFFLINE=OFFLINE
-string CONNECTIONBROKEN=CONNECTIONBROKEN
+string zoneDownloadProtocol # Protocol used to download the zones from the zoneDownloadLink
+
+Zone[] zones            # List of zones to be used by the AGV
