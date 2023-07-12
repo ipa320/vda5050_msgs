@@ -54,7 +54,7 @@ bool newBaseRequest                     # “true”: AGV is almost at the end o
                                         # Trigger for MC to send a new base.
                                         # “false”: no base request required.
 
-float64 distanceSinceLastNode           # Used by line guided vehicles to indicate the distance it has been driving past the „lastNodeIdId“. 
+float64 distanceSinceLastNode           # [m] Used by line guided vehicles to indicate the distance it has been driving past the „lastNodeIdId“. 
                                         # Distance is in meters
 
 
@@ -65,11 +65,13 @@ vda5050_msgs/ActionState[] actionStates # Contains a list of the current actions
                                         # The action state is kept until a new order is received.
 
 vda5050_msgs/BatteryState batteryState  # Contains all battery-related information.
-string operatingMode                    # For additional information, see the table OperatingModes in the chapter 6.10.6.
+
+string operatingMode                    # Current operating mode of the vehicle.
+
 vda5050_msgs/Error[] errors             # Array of error-objects. All active errors of the AGV should be in the list.
                                         # An empty array indicates that the AGV has no active errors.
 
-vda5050_msgs/Info[] informations        # Array of info-objects. An empty array indicates that the AGV has no information.
+vda5050_msgs/Info[] information        # Array of info-objects. An empty array indicates that the AGV has no information.
                                         # This should only be used for visualization or debugging – it must not be used for logic in master control.
 
 vda5050_msgs/SafetyState safetyState    # Contains all safety-related information.

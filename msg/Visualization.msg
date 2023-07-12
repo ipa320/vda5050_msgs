@@ -11,6 +11,6 @@ string manufacturer     # Manufacturer of the AGV
 string serialNumber     # Serial Number of the AGV
 
 # CONTENTS
-AGVPosition agvPosition # The AGV's position
+AGVPosition agvPosition # The AGV/AMR's position
 
-Velocity velocity       # The AGV's velocity in vehicle coordinates
+Velocity velocity       # The AGV/AMR's velocity in vehicle coordinates

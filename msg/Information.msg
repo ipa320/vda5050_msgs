@@ -1,1 +1,1 @@
-vda5050_msgs/Info[] informations
+vda5050_msgs/Info[] information

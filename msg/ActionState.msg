@@ -1,13 +1,12 @@
-# HEADER
-vda5050_msgs/Header header      # header of the message
-
 # CONTENTS
 string actionID	                # action_ID
+
 string actionType               # actionType of the action.
                                 # Optional: Only for informational or visualization purposes. Order knows the type.
 
-string actionStatus             # waiting: waiting for trigger
-                                # (passing the node, entering the edge)
+string actionDescription        # Additional information on the current action. 
+
+string actionStatus             # Waiting: waiting for trigger (passing the node, entering the edge)
                                 # Paused: paused by instantAction or external trigger
                                 # failed: action could not be performed.
 
