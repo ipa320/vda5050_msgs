@@ -1,11 +1,14 @@
 # Defines the position on a map in world coordinates. Each floor has its own map.
 
-bool positionInitialized      # False: position is not initialized True: position is initialized
+bool positionInitialized      # True: position is initialized
+                              # False: position is not initialized 
 
-float64 localizationScore       # Range: [0.0 … 1.0] Describes the quality of the localization and therefore, can be used 
+float64 localizationScore     # Range: [0.0 … 1.0] Describes the quality of the localization and therefore, can be used 
                               # e. g. by SLAMAGVs to describe how accurate the current position information is. 
                               # 0.0: position unknown 1.0: position known
-float64 deviationRange          # Value for the deviation range of the position in meters.
+
+float64 deviationRange        # Value for the deviation range of the position in meters.
+
 float64 x                     # [m] X-position on the map in reference to the map coordinate system. Precision is up to
                               # the specific implementation
 

@@ -5,13 +5,6 @@ float64 y                                         # [m] Y-position on the map in
 
 float64 theta                                     # [rad] The angular dimension
 
-string mapId                                      # Unique identification of the map in which the position is referenced. Each map has the same
-                                                  # origin of coordinates. When an AGV uses an elevator, e. g. leading from a departure floor to a
-                                                  # target floor, it will disappear off the map of the departure floor and spawn in the related
-                                                  # lift node on the map of the target floor.
-
-string mapDescription                             # Additional information on the map
-
 float32 allowedDeviationXY                        # Indicates how exact an AGV has to drive over a node in order for it
                                                   # to count as traversed.
                                                   #
@@ -26,3 +19,10 @@ float32 allowedDeviationTheta                     # Range: [0 ... Pi]
                                                   # Indicates how big the deviation of theta angle can be.
                                                   # The lowest acceptable angle  is theta -allowedDevaitionTheta and
                                                   # the  highest acceptable angle is theta + allowedDeviationTheta
+
+string mapId                                      # Unique identification of the map in which the position is referenced. Each map has the same
+                                                  # origin of coordinates. When an AGV uses an elevator, e. g. leading from a departure floor to a
+                                                  # target floor, it will disappear off the map of the departure floor and spawn in the related
+                                                  # lift node on the map of the target floor.
+
+string mapDescription                             # Additional information on the map

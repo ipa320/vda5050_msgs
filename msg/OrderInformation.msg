@@ -39,7 +39,6 @@ bool newBaseRequested                                # True: AGV is almost at th
 float64 distanceSinceLastNode                       # Used by line guided vehicles to indicate the distance it has been driving past the „lastNodeId“. Distance is in meters
 
 string operatingMode                                 # Enum {AUTOMATIC, SEMIAUTOMATIC, MANUAL, SERVICE, TEACHIN}
-                                                     # For additional information see chapter 6.2
 
 vda5050_msgs/NodeState[] nodeStates                  # Array of nodeStateObjects (empty list if idle)
 
@@ -91,5 +90,4 @@ string MANUAL=MANUAL
                                                      # Supervisor is not in control of the AGV. Supervisor doesn’t send driving order or actions to the AGV. Authorized personal can reconfigure the AGV.
 string SERVICE=SERVICE
 
-                                                     # Supervisor is not in control of the AGV. Supervisor doesn’t send driving order or actions to the AGV. The AGV is being taught, e.g. mapping is done by a supervisor
-string TEACHIN=TEACHIN
+string TEACHIN=TEACHIN                               # Supervisor is not in control of the AGV. Supervisor doesn’t send driving order or actions to the AGV. The AGV is being taught, e.g. mapping is done by a supervisor.

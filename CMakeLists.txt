@@ -20,14 +20,12 @@ add_message_files(
     BoundingBoxReference.msg
     Connection.msg
     ControlPoint.msg
-    CurrentAction.msg
     Edge.msg
     EdgeState.msg
     EdgeStates.msg
     Error.msg
     Errors.msg
     ErrorReference.msg
-    Header.msg
     InstantActions.msg
     Info.msg
     InfoReference.msg
@@ -40,9 +38,6 @@ add_message_files(
     NodeState.msg
     NodeStates.msg
     Order.msg
-    OrderActions.msg
-    OrderInformation.msg
-    OrderMotion.msg
     SafetyState.msg
     State.msg
     Trajectory.msg
