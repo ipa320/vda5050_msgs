@@ -1,7 +1,7 @@
 string loadId                                           # Unique identification number of the load (e. g. barcode or
                                                         # RFID)
                                                         
-string loadType                                         # Type of load 
+string loadType                                         # Type of load.
 
 string loadPosition                                     # Indicates which load handling/carrying unit of the AGV is
                                                         # used, e. g. in case the AGV has multiple spots/positions to
@@ -14,4 +14,4 @@ vda5050_msgs/BoundingBoxReference boundingBoxReference  # Point of reference for
                                                         
 vda5050_msgs/LoadDimensions loadDimensions              # Dimensions of the load’s bounding box in meters.
 
-uint32 weight                                           # Absolute weight of the load measured in kg.
+float64 weight                                          # [Kg] Absolute weight of the load measured.

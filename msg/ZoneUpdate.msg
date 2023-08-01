@@ -11,6 +11,10 @@ string manufacturer     # Manufacturer of the AGV
 string serialNumber     # Serial Number of the AGV
 
 # CONTENTS
-AGVPosition agvPosition # The AGV/AMR's position
+string zoneSetId        # The ID of the zone set being used
 
-Velocity velocity       # The AGV/AMR's velocity in vehicle coordinates
+string zoneDownloadLink # Link to download the zones
+
+string zoneDownloadProtocol # Protocol used to download the zones from the zoneDownloadLink
+
+Zone[] zones            # List of zones to be used by the AGV

@@ -2,7 +2,7 @@
 int32 headerId                                       # header ID of the message. The headerId is defined per topic and incremented by 1 with each sent
                                                      # (but not necessarily received) message.
 
-string timestamp                                     # Timestamp after ISO8601 in the format YYYY-MM-DDTHH:mm:ss.ssZ (e.g.“2017-04-15T11:40:03.12Z”)
+string timeStamp                                     # Timestamp after ISO8601 in the format YYYY-MM-DDTHH:mm:ss.ssZ (e.g.“2017-04-15T11:40:03.12Z”)
 
 string version                                       # Version of the protocol [Major].[Minor].[Patch] (e.g. 1.3.2)
 
@@ -39,7 +39,6 @@ bool newBaseRequested                                # True: AGV is almost at th
 float64 distanceSinceLastNode                       # Used by line guided vehicles to indicate the distance it has been driving past the „lastNodeId“. Distance is in meters
 
 string operatingMode                                 # Enum {AUTOMATIC, SEMIAUTOMATIC, MANUAL, SERVICE, TEACHIN}
-                                                     # For additional information see chapter 6.2
 
 vda5050_msgs/NodeState[] nodeStates                  # Array of nodeStateObjects (empty list if idle)
 
@@ -91,5 +90,4 @@ string MANUAL=MANUAL
                                                      # Supervisor is not in control of the AGV. Supervisor doesn’t send driving order or actions to the AGV. Authorized personal can reconfigure the AGV.
 string SERVICE=SERVICE
 
-                                                     # Supervisor is not in control of the AGV. Supervisor doesn’t send driving order or actions to the AGV. The AGV is being taught, e.g. mapping is done by a supervisor
-string TEACHIN=TEACHIN
+string TEACHIN=TEACHIN                               # Supervisor is not in control of the AGV. Supervisor doesn’t send driving order or actions to the AGV. The AGV is being taught, e.g. mapping is done by a supervisor.

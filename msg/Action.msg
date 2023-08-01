@@ -25,7 +25,7 @@ vda5050_msgs/ActionParameter[] actionParameters                 # Array of actio
                                                                 # serialization is always a json dictionary with "key"
                                                                 # and "value" we decided to serialize the value as 
                                                                 # string. This way the (de-)serialization has to be done by 
-                                                                # the user depending on the key, but the protocol is met
+                                                                # the user depending on the key, but the protocol is met.
 
 
 # Enums for blockingType
