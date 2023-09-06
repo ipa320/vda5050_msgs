@@ -14,18 +14,13 @@ string serialNumber                          # Serial Number of the AGV
 
 string orderId                               # Unique order identification
 
-uint32 orderUpdateId                         # orderUpdate identification. Is unique per orderId. If an order update is
+int32 orderUpdateId                          # orderUpdate identification. Is unique per orderId. If an order update is
                                              # rejected, this field is to be passed in the rejection message
 
-bool replace                                 # Indicates that previously released base nodes should be replaced by the
-                                             # base of this updated order. If this is not possible, the AGV returns an
-                                             # error code (see errors in topic “state”). The new base has to start at the
-                                             # following node from the current position which has not been traversed yet.
+string zone_set_id                           # Unique identifier of the zone set that the AGV has to use for navigation or that was used by master controlfor planning
+                                             # Optional: Some master controlsystems do not use zones. Some AGVs do not understand zones. Do not add to message if no zones are used
 
 vda5050_msgs/Node[] nodes                    # Array of nodes to be traversed for fulfilling the order. The nodes come
                                              # in the sequence of the fulfilling.
 
 vda5050_msgs/Edge[] edges                    # Array of edges to be traversed for fulfilling the order
-
-string zoneSetId                             # Unique identifier of the zone set that the AGV has to use for navigation or that was used by master controlfor planning
-                                             # Optional: Some master controlsystems do not use zones. Some AGVs do not understand zones. Do not add to message if no zones are used
