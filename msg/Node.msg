@@ -2,7 +2,7 @@
 
 string nodeId                                     # Unique node identification.
 
-int32 sequenceId                                  # Id to track the sequence of nodes and edges in an order and to
+uint32 sequenceId                                 # Id to track the sequence of nodes and edges in an order and to
                                                   # simplify order updates. The variable sequenceId runs across all
                                                   # nodes and edges of the same order and is reset when a new orderId is
                                                   # issued.

@@ -14,7 +14,7 @@ string serialNumber                          # Serial Number of the AGV
 
 string orderId                               # Unique order identification
 
-int32 orderUpdateId                          # orderUpdate identification. Is unique per orderId. If an order update is
+uint32 orderUpdateId                          # orderUpdate identification. Is unique per orderId. If an order update is
                                              # rejected, this field is to be passed in the rejection message
 
 string zone_set_id                           # Unique identifier of the zone set that the AGV has to use for navigation or that was used by master controlfor planning
