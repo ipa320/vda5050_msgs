@@ -1,0 +1,27 @@
+repos:
+-   repo: https://github.com/psf/black
+    rev: "23.1.0"
+    hooks:
+      - id: black
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    - id: check-yaml
+      args: ["--unsafe"]
+    - id: end-of-file-fixer
+    - id: trailing-whitespace
+- repo: https://github.com/compilerla/conventional-pre-commit
+  rev: "v2.1.1"
+  hooks:
+    - id: conventional-pre-commit
+      stages: [commit-msg]
+      args: [] # optional: list of Conventional Commits types to allow
+- repo: local
+  hooks:
+    - id: catkin_lint
+      name: catkin_lint
+      description: Check package.xml and cmake files
+      entry: catkin_lint -W2 --warn os-error --explain --warn unknown_depend --warn unknown_package --warn undefined_target .
+      language: system
+      always_run: true
+      pass_filenames: false

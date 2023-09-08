@@ -1,5 +1,5 @@
 # HEADER
-int32 header_id                                      # header ID of the message. The header_id is defined per topic and incremented by 1 with each sent
+uint32 header_id                                     # header ID of the message. The header_id is defined per topic and incremented by 1 with each sent
                                                      # (but not necessarily received) message.
 
 string timestamp                                     # Timestamp after ISO8601 in the format YYYY-MM-DDTHH:mm:ss.ssZ (e.g.“2017-04-15T11:40:03.12Z”)
@@ -21,7 +21,7 @@ string zone_set_id                                   # Unique ID of the zone set
 string last_node_id                                  # nodeId of last reached node or, if AGV is currently on a node, current node (e.g. „node7”).
                                                      # Empty string ("") if no lastNodeId is available.
 
-int32 last_node_sequence_id                          # sequence_id of the last reached node or, if the AGV is currently on a node, sequence_id of current node.
+uint32 last_node_sequence_id                         # sequence_id of the last reached node or, if the AGV is currently on a node, sequence_id of current node.
                                                      # “0” if no last_node_sequence_id is available.
 
 bool driving                                         # True: indicates that the AGV is driving and/or rotating. Other
@@ -32,7 +32,7 @@ bool paused                                          # True: AGV is currently in
                                                      # because of an instantAction. The AGV can resume the order.
                                                      # False: The AGV is currently not in a paused state
 
-bool new_base_requested                              # True: AGV is almost at the end of the base and will reduce speed if no new base is transmitted. Trigger for MC to send ne base
+bool new_base_request                                # True: AGV is almost at the end of the base and will reduce speed if no new base is transmitted. Trigger for MC to send ne base
                                                      # False: no base update required
 
 # Optional
@@ -59,7 +59,7 @@ vda5050_msgs/Load[] loads                            # Loads that are currently 
                                                      # Optional: If AGV cannot determine load state, leave the array out of the state.
                                                      # If the  AGV  can determine the  load  state,  but  the  array  is  empty,  the  AGV  is considered unloaded.
 
-vda5050_msgs/CurrentAction[] action_states           # Contains a list of the current actions and the actions which are
+vda5050_msgs/ActionState[] action_states             # Contains a list of the current actions and the actions which are
                                                      # yet to be finished. This may include actions from previous nodes
                                                      # that are still in progress. When an action is completed, an
                                                      # updated state message is published with action_status set to
@@ -72,9 +72,9 @@ vda5050_msgs/Error[] errors                          # Array of errorobjects. Em
 
 vda5050_msgs/SafetyState safety_state                # Contains all safetyrelated information.
 
-vda5050_msgs/Info[] informations                       # Array of info-objects. An empty array indicates that the AGV has no information.
+vda5050_msgs/Info[] informations                     # Array of info-objects. An empty array indicates that the AGV has no information.
                                                      # This should only be used for visualization or debugging – it must not be used for logic in master control
-
+                                                     # Changed to information with 2.0
 
 
 
@@ -92,4 +92,4 @@ string MANUAL="MANUAL"
 string SERVICE="SERVICE"
 
                                                      # Supervisor is not in control of the AGV. Supervisor doesn’t send driving order or actions to the AGV. The AGV is being taught, e.g. mapping is done by a supervisor
-string TEACHIN="TEACHIN"
+string TEACHING="TEACHING"                           # Changed to TEACHIN with 2.0
