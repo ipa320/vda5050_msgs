@@ -14,27 +14,29 @@ add_message_files(
     AGVPosition.msg
     Action.msg
     ActionParameter.msg
+    ActionState.msg
     BatteryState.msg
     BoundingBoxReference.msg
     Connection.msg
     ControlPoint.msg
-    CurrentAction.msg
     Edge.msg
     EdgeState.msg
     Error.msg
+    Errors.msg
     ErrorReference.msg
     Header.msg
     InstantActions.msg
     Info.msg
     InfoReference.msg
     Load.msg
+    Loads.msg
     LoadDimensions.msg
     Node.msg
     NodePosition.msg
     NodeState.msg
     Order.msg
-    OrderInformation.msg
     SafetyState.msg
+    State.msg
     Trajectory.msg
     Velocity.msg
     Visualization.msg

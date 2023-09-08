@@ -1,5 +1,5 @@
 # HEADER
-int32 headerId                                       # header ID of the message. The headerId is defined per topic and incremented by 1 with each sent
+uint32 headerId                                       # header ID of the message. The headerId is defined per topic and incremented by 1 with each sent
                                                      # (but not necessarily received) message.
 
 string timestamp                                     # Timestamp after ISO8601 in the format YYYY-MM-DDTHH:mm:ss.ssZ (e.g.“2017-04-15T11:40:03.12Z”)
@@ -21,7 +21,7 @@ string zoneSetId                                     # Unique ID of the zone set
 string lastNodeId                                    # nodeId of last reached node or, if AGV is currently on a node, current node (e.g. „node7”).
                                                      # Empty string ("") if no lastNodeId is available.
 
-int32 lastNodeSequenceId                             # sequenceId of the last reached node or, if the AGV is currently on a node, sequenceId of current node.
+uint32 lastNodeSequenceId                            # sequenceId of the last reached node or, if the AGV is currently on a node, sequenceId of current node.
                                                      # “0” if no lastNodeSequenceId is available.
 
 bool driving                                         # True: indicates that the AGV is driving and/or rotating. Other
@@ -32,13 +32,13 @@ bool paused                                          # True: AGV is currently in
                                                      # because of an instantAction. The AGV can resume the order.
                                                      # False: The AGV is currently not in a paused state
 
-bool newBaseRequested                                # True: AGV is almost at the end of the base and will reduce speed if no new base is transmitted. Trigger for MC to send ne base
+bool newBaseRequest                                  # True: AGV is almost at the end of the base and will reduce speed if no new base is transmitted. Trigger for MC to send ne base
                                                      # False: no base update required
 
 # Optional
 float64 distanceSinceLastNode                       # Used by line guided vehicles to indicate the distance it has been driving past the „lastNodeId“. Distance is in meters
 
-string operatingMode                                 # Enum {AUTOMATIC, SEMIAUTOMATIC, MANUAL, SERVICE, TEACHIN}
+string operatingMode                                 # Enum {AUTOMATIC, SEMIAUTOMATIC, MANUAL, SERVICE, TEACHING}
                                                      # For additional information see chapter 6.2
 
 vda5050_msgs/NodeState[] nodeStates                  # Array of nodeStateObjects (empty list if idle)
@@ -51,15 +51,11 @@ vda5050_msgs/AGVPosition agvPosition                 # Current position of the A
 
 vda5050_msgs/Velocity velocity                       # AGV's velocity in vehicle coordinates
 
-vda5050_msgs/Trajectory trajectory                   # The trajectory is to be communicated as a NURBS and is defined in
-                                                     # chapter 5.1. Optional: AGVs that plan their own path are to
-                                                     # communicate their path via a trajectory object.
-
 vda5050_msgs/Load[] loads                            # Loads that are currently handled by the AGV.
                                                      # Optional: If AGV cannot determine load state, leave the array out of the state.
                                                      # If the  AGV  can determine the  load  state,  but  the  array  is  empty,  the  AGV  is considered unloaded.
 
-vda5050_msgs/CurrentAction[] actionStates            # Contains a list of the current actions and the actions which are
+vda5050_msgs/ActionState[] actionStates              # Contains a list of the current actions and the actions which are
                                                      # yet to be finished. This may include actions from previous nodes
                                                      # that are still in progress. When an action is completed, an
                                                      # updated state message is published with actionStatus set to
@@ -74,7 +70,7 @@ vda5050_msgs/SafetyState safetyState                 # Contains all safetyrelate
 
 vda5050_msgs/Info[] informations                     # Array of info-objects. An empty array indicates that the AGV has no information.
                                                      # This should only be used for visualization or debugging – it must not be used for logic in master control
-
+                                                     # Changed to information with 2.0
 
 
 
@@ -92,4 +88,4 @@ string MANUAL=MANUAL
 string SERVICE=SERVICE
 
                                                      # Supervisor is not in control of the AGV. Supervisor doesn’t send driving order or actions to the AGV. The AGV is being taught, e.g. mapping is done by a supervisor
-string TEACHIN=TEACHIN
+string TEACHING=TEACHING                             # Changed to TEACHIN with 2.0
