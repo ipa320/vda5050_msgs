@@ -26,6 +26,7 @@
 
   <export>
     <build_type>ament_cmake</build_type>
+    <ros1_bridge mapping_rules="vda5050_msgs_mapping_rules.yaml"/>
   </export>
 
 </package>
