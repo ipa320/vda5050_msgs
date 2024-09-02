@@ -51,10 +51,6 @@ vda5050_msgs/AGVPosition agvPosition                 # Current position of the A
 
 vda5050_msgs/Velocity velocity                       # AGV's velocity in vehicle coordinates
 
-vda5050_msgs/Trajectory trajectory                   # The trajectory is to be communicated as a NURBS and is defined in
-                                                     # chapter 5.1. Optional: AGVs that plan their own path are to
-                                                     # communicate their path via a trajectory object.
-
 vda5050_msgs/Load[] loads                            # Loads that are currently handled by the AGV.
                                                      # Optional: If AGV cannot determine load state, leave the array out of the state.
                                                      # If the  AGV  can determine the  load  state,  but  the  array  is  empty,  the  AGV  is considered unloaded.
