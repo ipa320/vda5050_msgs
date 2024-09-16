@@ -18,8 +18,8 @@ import re
 
 
 def snakey(non_snake_string) -> str:
-    pattern = re.compile(r'(?<!^)(?=[A-Z])')
-    return pattern.sub('_', non_snake_string).lower()
+    pattern = re.compile(r"(?<!^)(?=[A-Z])")
+    return pattern.sub("_", non_snake_string).lower()
 
 
 def dromedary(non_dromedary_string) -> str:
@@ -28,7 +28,7 @@ def dromedary(non_dromedary_string) -> str:
 
 
 def camely(non_camel_string) -> str:
-    return ''.join(word[0].upper() + word[1:] for word in non_camel_string.split('_'))
+    return "".join(word[0].upper() + word[1:] for word in non_camel_string.split("_"))
 
 
 def transform_keys_in_dict(multilevel_dict, transformer):
@@ -36,13 +36,30 @@ def transform_keys_in_dict(multilevel_dict, transformer):
         return multilevel_dict
     new_dict = {}
     for k, v in multilevel_dict.items():
-
         k = transformer(k)
 
         if isinstance(v, dict):
             v = transform_keys_in_dict(v, transformer)
         if isinstance(v, list):
             v = [transform_keys_in_dict(x, transformer) for x in v]
+
+        assert k not in new_dict
+        new_dict[k] = v
+    return new_dict
+
+
+def transform_action_parameter_values_to_json_string(multilevel_dict):
+    if not isinstance(multilevel_dict, dict):
+        return multilevel_dict
+    new_dict = {}
+    for k, v in multilevel_dict.items():
+        if k == "action_parameters" and isinstance(v, list):
+            v = [{"key": elem["key"], "value": json.dumps(elem["value"])} for elem in v]
+        else:
+            if isinstance(v, dict):
+                v = transform_action_parameter_values_to_json_string(v)
+            if isinstance(v, list):
+                v = [transform_action_parameter_values_to_json_string(x) for x in v]
 
         assert k not in new_dict
         new_dict[k] = v
@@ -57,3 +74,8 @@ def loads(str_val) -> dict:
     d = json.loads(str_val)
 
     return transform_keys_in_dict(d, snakey)
+
+
+# retransforms all instances of action_parameters to turn the values into an json encoded string to support arbitrary types in the string message
+def loads_transforming_action_parameter_values_to_json_string(str_val) -> dict:
+    return transform_action_parameter_values_to_json_string(loads(str_val))
