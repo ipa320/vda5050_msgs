@@ -53,3 +53,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 
 ament_export_dependencies(rosidl_default_runtime)
 ament_package()
+
+install(
+  FILES vda5050_msgs_mapping_rules.yaml
+  DESTINATION share/${PROJECT_NAME})

@@ -1,0 +1,27 @@
+-
+  ros1_package_name: 'vda5050_msgs'
+  ros1_message_name: 'InstantActions'
+  ros2_package_name: 'vda5050_msgs'
+  ros2_message_name: 'msg/InstantActions'
+  fields_1_to_2:
+    headerId: 'header_id'
+    timestamp: 'timestamp'
+    version: 'version'
+    manufacturer: 'manufacturer'
+    serialNumber: 'serial_number'
+    instantActions: 'instant_actions'
+-
+  ros1_package_name: 'vda5050_msgs'
+  ros1_message_name: 'Action'
+  ros2_package_name: 'vda5050_msgs'
+  ros2_message_name: 'msg/Action'
+  fields_1_to_2:
+    actionType: 'action_type'
+    actionId: 'action_id'
+    actionDescription: 'action_description'
+    blockingType: 'blocking_type'
+    actionParameters: 'action_parameters'
+    NONE: 'NONE'
+    SOFT: 'SOFT'
+    HARD: 'HARD'
+    
