@@ -51,10 +51,6 @@ vda5050_msgs/AGVPosition agv_position                # Current position of the A
 
 vda5050_msgs/Velocity velocity                      # AGV's velocity in vehicle coordinates
 
-vda5050_msgs/Trajectory trajectory                   # The trajectory is to be communicated as a NURBS and is defined in
-                                                     # chapter 5.1. Optional: AGVs that plan their own path are to
-                                                     # communicate their path via a trajectory object.
-
 vda5050_msgs/Load[] loads                            # Loads that are currently handled by the AGV.
                                                      # Optional: If AGV cannot determine load state, leave the array out of the state.
                                                      # If the  AGV  can determine the  load  state,  but  the  array  is  empty,  the  AGV  is considered unloaded.
@@ -72,11 +68,10 @@ vda5050_msgs/Error[] errors                          # Array of errorobjects. Em
 
 vda5050_msgs/SafetyState safety_state                # Contains all safetyrelated information.
 
-vda5050_msgs/Info[] informations                     # Array of info-objects. An empty array indicates that the AGV has no information.
-                                                     # This should only be used for visualization or debugging – it must not be used for logic in master control
-                                                     # Changed to information with 2.0
-
-
+vda5050_msgs/Info[] information                     # Array of info-objects. An empty array indicates that the AGV has no information.
+                                                    # This should only be used for visualization or debugging – it must not be used for logic in master control
+                                                    # Changed to information with 2.0
+vda5050_msgs/Map[] maps                             #Array of map-objects that are currently stored on the vehicle.
 
                                                      # Enums for operatingMode
 string AUTOMATIC="AUTOMATIC"

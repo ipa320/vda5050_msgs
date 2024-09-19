@@ -6,7 +6,8 @@ string error_description                      # Error description
 string error_level                            # Enum {warning, fatal} warning: AGV is ready to start (e.g. maintenance
                                               # cycle expiration warning) fatal: AGV is not in running condition, user
                                               # intervention required (e.g. laser scanner is contaminated)
+string error_hint                             # Hint on how to approach or solve the reported error.
 
 # Enums for error_level
-string WARNING="warning"
-string FATAL="fatal"
+string WARNING="WARNING"
+string FATAL="FATAL"

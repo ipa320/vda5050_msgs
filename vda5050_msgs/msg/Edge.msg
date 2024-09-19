@@ -29,6 +29,8 @@ float64 orientation                 # [rad] Orientation of the AGV on the edge r
                                     # If a trajectory with orientation is defined, follow the trajectories orientation.
                                     # If a trajectory without orientation and the orientation field here is defined,
                                     # apply the orientation to the tangent of the trajectory.
+string orientation_type             # "GLOBAL"- relative to the global project specific map coordinate system;
+                                    # "TANGENTIAL"- tangential to the edge. If not defined, the default value is "TANGENTIAL"
 
 string direction                    # Sets direction at junctions for line-guided vehicles, to be defined initially
                                     # (vehicle individual) Example: left, right, straight, 433MHz
@@ -39,6 +41,7 @@ float64 max_rotation_speed          # [rad/s] Maximum rotation speed Optional: N
 vda5050_msgs/Trajectory trajectory  # Trajectory JSON-object for this edge as a NURBS. Defines the curve on which the
                                     # AGV should move between start_node and end_node. Optional: Can be omitted if AGV
                                     # cannot process trajectories or if AGV plans its own trajectory.
+vda5050_msgs/Corridor corridor      # Definition of boundaries in which a vehicle can deviate from its trajectory, e. g. to avoid obstacles.
 float64 length                      # [m] Length of the path from startNode to endNode. Optional: This value is used
                                     # by lineguided AGVs to decrease their speed before reaching a stop position.
 
@@ -46,3 +49,7 @@ vda5050_msgs/Action[] actions       # Array of action_ids to be executed on the 
                                     # only be active for the time that the AGV is traversing the edge which triggered
                                     # the action. When the AGV leaves the edge, the action will stop and the state
                                     # before entering the edge will be restored.
+
+# Enum for orientation_type
+string GLOBAL="GLOBAL"
+string TANGENTIAL="TANGENTIAL"
