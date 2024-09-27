@@ -1,14 +1,14 @@
 #! /usr/bin/env python3
 # Copyright 2020 Fraunhofer IPA
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
+# Licensed under the Apache License, Version 2.0 (the 'License');
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
 #     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
+# distributed under the License is distributed on an 'AS IS' BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
@@ -18,8 +18,8 @@ import re
 
 
 def snakey(non_snake_string) -> str:
-    pattern = re.compile(r"(?<!^)(?=[A-Z])")
-    return pattern.sub("_", non_snake_string).lower()
+    pattern = re.compile(r'(?<!^)(?=[A-Z])')
+    return pattern.sub('_', non_snake_string).lower()
 
 
 def dromedary(non_dromedary_string) -> str:
@@ -28,7 +28,7 @@ def dromedary(non_dromedary_string) -> str:
 
 
 def camely(non_camel_string) -> str:
-    return "".join(word[0].upper() + word[1:] for word in non_camel_string.split("_"))
+    return ''.join(word[0].upper() + word[1:] for word in non_camel_string.split('_'))
 
 
 def transform_keys_in_dict(multilevel_dict, transformer):
@@ -53,8 +53,8 @@ def transform_action_parameter_values_to_json_string(multilevel_dict):
         return multilevel_dict
     new_dict = {}
     for k, v in multilevel_dict.items():
-        if k == "action_parameters" and isinstance(v, list):
-            v = [{"key": elem["key"], "value": json.dumps(elem["value"])} for elem in v]
+        if k == 'action_parameters' and isinstance(v, list):
+            v = [{'key': elem['key'], 'value': json.dumps(elem['value'])} for elem in v]
         else:
             if isinstance(v, dict):
                 v = transform_action_parameter_values_to_json_string(v)
@@ -76,6 +76,7 @@ def loads(str_val) -> dict:
     return transform_keys_in_dict(d, snakey)
 
 
-# retransforms all instances of action_parameters to turn the values into an json encoded string to support arbitrary types in the string message
+# retransforms all instances of action_parameters to turn the values into
+# an json encoded string to support arbitrary types in the string message
 def loads_transforming_action_parameter_values_to_json_string(str_val) -> dict:
     return transform_action_parameter_values_to_json_string(loads(str_val))
