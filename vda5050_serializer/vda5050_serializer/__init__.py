@@ -1,14 +1,14 @@
 #! /usr/bin/env python3
 # Copyright 2020 Fraunhofer IPA
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
+# Licensed under the Apache License, Version 2.0 (the 'License');
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
 #     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
+# distributed under the License is distributed on an 'AS IS' BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
@@ -36,13 +36,30 @@ def transform_keys_in_dict(multilevel_dict, transformer):
         return multilevel_dict
     new_dict = {}
     for k, v in multilevel_dict.items():
-
         k = transformer(k)
 
         if isinstance(v, dict):
             v = transform_keys_in_dict(v, transformer)
         if isinstance(v, list):
             v = [transform_keys_in_dict(x, transformer) for x in v]
+
+        assert k not in new_dict
+        new_dict[k] = v
+    return new_dict
+
+
+def transform_action_parameter_values_to_json_string(multilevel_dict):
+    if not isinstance(multilevel_dict, dict):
+        return multilevel_dict
+    new_dict = {}
+    for k, v in multilevel_dict.items():
+        if k == 'action_parameters' and isinstance(v, list):
+            v = [{'key': elem['key'], 'value': json.dumps(elem['value'])} for elem in v]
+        else:
+            if isinstance(v, dict):
+                v = transform_action_parameter_values_to_json_string(v)
+            if isinstance(v, list):
+                v = [transform_action_parameter_values_to_json_string(x) for x in v]
 
         assert k not in new_dict
         new_dict[k] = v
@@ -57,3 +74,9 @@ def loads(str_val) -> dict:
     d = json.loads(str_val)
 
     return transform_keys_in_dict(d, snakey)
+
+
+# retransforms all instances of action_parameters to turn the values into
+# an json encoded string to support arbitrary types in the string message
+def loads_transforming_action_parameter_values_to_json_string(str_val) -> dict:
+    return transform_action_parameter_values_to_json_string(loads(str_val))
