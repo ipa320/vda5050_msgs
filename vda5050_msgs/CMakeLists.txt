@@ -24,16 +24,18 @@ set(msg_files
     "msg/BoundingBoxReference.msg"
     "msg/Connection.msg"
     "msg/ControlPoint.msg"
+    "msg/Corridor.msg"
     "msg/Edge.msg"
     "msg/EdgeState.msg"
     "msg/Error.msg"
     "msg/ErrorReference.msg"
+    "msg/Header.msg"
     "msg/Info.msg"
     "msg/InfoReference.msg"
-    "msg/Header.msg"
     "msg/InstantActions.msg"
     "msg/Load.msg"
     "msg/LoadDimensions.msg"
+    "msg/Map.msg"
     "msg/Node.msg"
     "msg/NodePosition.msg"
     "msg/NodeState.msg"
@@ -46,7 +48,7 @@ set(msg_files
 )
 rosidl_generate_interfaces(${PROJECT_NAME}
   ${msg_files}
-  DEPENDENCIES 
+  DEPENDENCIES
     std_msgs
     builtin_interfaces
 )
