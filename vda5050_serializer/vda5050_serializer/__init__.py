@@ -15,6 +15,7 @@
 
 import json
 import re
+import math
 
 
 def snakey(non_snake_string) -> str:
@@ -66,6 +67,19 @@ def transform_action_parameter_values_to_json_string(multilevel_dict):
     return new_dict
 
 
+def turn_missing_orientations_of_nodes_into_infinity(multilevel_dict):
+    for node in multilevel_dict.get("nodes", []):
+        if "node_position" in node and "theta" not in node["node_position"]:
+            node["node_position"]["theta"] = float("inf")
+    return multilevel_dict
+
+def remove_inf_theta_of_nodes_from_state(multilevel_dict):
+    for node_state in multilevel_dict.get("node_states", []):
+        if "node_position" in node_state and (math.isinf(node_state["node_position"]["theta"]) or math.isnan(node_state["node_position"]["theta"])):
+            del node_state["node_position"]["theta"]
+    return multilevel_dict
+
+
 def dumps(d) -> str:
     return json.dumps(transform_keys_in_dict(d, dromedary))
 
@@ -79,3 +93,13 @@ def loads(str_val) -> dict:
 # retransforms all instances of action_parameters to turn the values into an json encoded string to support arbitrary types in the string message
 def loads_transforming_action_parameter_values_to_json_string(str_val) -> dict:
     return transform_action_parameter_values_to_json_string(loads(str_val))
+
+
+# combination suitable for correctly parsing orders
+def order_loads(str_val: str) -> dict:
+    return transform_action_parameter_values_to_json_string(
+        turn_missing_orientations_of_nodes_into_infinity(loads(str_val))
+    )
+
+def state_dumps(d) -> str:
+    return dumps(remove_inf_theta_of_nodes_from_state(d))
