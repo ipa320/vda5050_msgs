@@ -87,4 +87,4 @@ string MANUAL="MANUAL"
 string SERVICE="SERVICE"
 
                                                      # Supervisor is not in control of the AGV. Supervisor doesn’t send driving order or actions to the AGV. The AGV is being taught, e.g. mapping is done by a supervisor
-string TEACHING="TEACHING"                           # Changed to TEACHIN with 2.0
+string TEACHIN="TEACHIN"                             # Changed to TEACHIN with 2.0
