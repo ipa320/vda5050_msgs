@@ -6,7 +6,7 @@ vda5050_msgs
 
 The vda5050_msgs package contains the datatypes (json objects) specified by the VDA 
 "Arbeitskreis Schlüsseltechnologien" in their recommondation "VDA 5050 - Schnittstelle zur Kommunikation zwischen 
-Fahrerlosen Transportfahrzeugen (FTF) und einer Leitsteuerung" in version 1.1.
+Fahrerlosen Transportfahrzeugen (FTF) und einer Leitsteuerung" in version 2.1.
 This package provides the message files which can be used to be (de-)serialized with an implementation of mqtt
 (e.g mqtt_bridge) or to plain json (rospy_message_converter) or similar. 
 
@@ -18,11 +18,11 @@ Currently, not defining some fields of the message types is not supported. This 
 
 ## ROS Distro Support
 
-|         |                                          Kinetic                                           |                                          Melodic                                           |
+|         |                                          Jazzy                                           |                                          Melodic                                           |
 | :-----: | :----------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |
-| Branch  |               [`master`](https://github.com/ipa320/vda5050_msgs/tree/master)               |               [`master`](https://github.com/ipa320/vda5050_msgs/tree/master)               |
-| Status  |                                         supported                                          |                                         supported                                          |
-| Version | [version](http://repositories.ros.org/status_page/ros_kinetic_default.html?q=vda5050_msgs) | [version](http://repositories.ros.org/status_page/ros_melodic_default.html?q=vda5050_msgs) |
+| Branch  |               [`ros2-v2.1`](https://github.com/ipa320/vda5050_msgs/tree/ros2-v2.1)               |               [`master`](https://github.com/ipa320/vda5050_msgs/tree/master)               |
+| Status  |                                         supported                                          |                                         outdated                                          |
+| Version | [version](https://docs.ros.org/en/jazzy/Installation.html) | [version](http://repositories.ros.org/status_page/ros_melodic_default.html?q=vda5050_msgs) |
 
 
 ## Travis - Continuous Integration
